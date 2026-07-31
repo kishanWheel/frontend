@@ -1,4 +1,18 @@
-import api from "./config";
+import axios from "axios";
 
-export const signup = (data) => api.post("/api/auth/signup", data);
-export const login = (data) => api.post("/api/auth/login", data);
+const API = axios.create({
+  baseURL: "http://localhost:3000/api",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+export const signup = (data) => {
+  return API.post("/auth/signup", data);
+};
+
+export const login = (data) => {
+  return API.post("/auth/login", data);
+};
+
+export default API;

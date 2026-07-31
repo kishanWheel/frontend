@@ -1,14 +1,23 @@
-function OwnerDashboard() {
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+import { useAuth } from "@/context/AuthContext";
+
+export default function OwnerDashboard() {
+
+  const { user } = useAuth();
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold">Owner Dashboard</h1>
-        <p className="text-slate-500 mt-1">Welcome, {user.name}</p>
-      </div>
+    <div className="p-10">
+
+      <h1 className="text-4xl font-bold text-slate-900">
+        Owner Dashboard
+      </h1>
+
+      <p className="mt-2 text-slate-500">
+        Welcome back,{" "}
+        <span className="font-semibold text-slate-800">
+          {user?.name || "Owner"}
+        </span>
+      </p>
+
     </div>
   );
 }
-
-export default OwnerDashboard;

@@ -1,23 +1,39 @@
-import { useAuth } from "@/context/AuthContext";
-
+import DashboardHeader from "@/components/Features/Owner/DashboardHeader";
+import DashboardStats from "@/components/Features/Owner/DashboardStats";
+import RevenueChart from "@/components/Features/Owner/RevenueChart";
+import FleetStatusChart from "@/components/Features/Owner/FleetStatusChart";
+import IncomingRequests from "@/components/Features/Owner/IncomingRequests";
+import FleetHealthAlerts from "@/components/Features/Owner/FleetHealthAlerts";
 export default function OwnerDashboard() {
-
-  const { user } = useAuth();
-
   return (
-    <div className="p-10">
+    <div className="min-h-screen bg-slate-100">
 
-      <h1 className="text-4xl font-bold text-slate-900">
-        Owner Dashboard
-      </h1>
+      <DashboardHeader />
 
-      <p className="mt-2 text-slate-500">
-        Welcome back,{" "}
-        <span className="font-semibold text-slate-800">
-          {user?.name || "Owner"}
-        </span>
-      </p>
+      <div className="space-y-8 p-8">
 
+        <DashboardStats />
+
+        <div className="grid grid-cols-12 gap-6">
+
+          <div className="col-span-8">
+            <RevenueChart />
+          </div>
+
+          <div className="col-span-4">
+            <FleetStatusChart />
+          </div>
+
+        </div>
+        <div className="grid grid-cols-12 gap-6">
+          <div className="col-span-7">
+            <IncomingRequests />
+          </div>
+          <div className="col-span-5">
+            <FleetHealthAlerts />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

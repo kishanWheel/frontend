@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import OwnerLayout from "@/layouts/OwnerLayout";
 import OwnerDashboard from "@/components/pages/Owner/OwnerDashboard";
+import Fleet from "@/components/pages/Owner/Fleet";
 
 export default function OwnerRoutes() {
   return (
@@ -18,9 +19,7 @@ export default function OwnerRoutes() {
         <Route
           path="fleet"
           element={
-            <div className="p-10 text-3xl font-bold">
-              Fleet
-            </div>
+            <Fleet />
           }
         />
 

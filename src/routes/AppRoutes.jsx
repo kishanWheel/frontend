@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 
 import SplashScreen from "@/components/pages/Auth/SplashScreen";
-import RoleSelection from "@/components/pages/Auth/ui/RoleSelection";
+import RoleSelection from "@/components/pages/Auth/RoleSelection";
 import SignupForm from "@/components/pages/Auth/SignupForm";
-import LoginForm from "@/components/pages/Auth/ui/LoginForm";
+import LoginForm from "@/components/pages/Auth/LoginForm";
 
 import OwnerRoutes from "./OwnerRoutes";
 import CustomerRoutes from "./CustomerRoutes";

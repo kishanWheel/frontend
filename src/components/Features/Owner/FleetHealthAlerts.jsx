@@ -7,7 +7,7 @@ export default function FleetHealthAlerts() {
 
       <div className="mb-6 flex items-center justify-between">
 
-        <h2 className="text-3xl font-bold">
+        <h2 className="text-xl font-bold">
           Fleet Health Alerts
         </h2>
 

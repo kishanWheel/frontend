@@ -14,30 +14,20 @@ export default function DashboardHeader() {
 
   return (
     <header className="sticky top-0 z-20 flex items-center justify-between border-b bg-white px-8 py-4">
-
       {/* Left */}
-
       <div className="flex items-center gap-3 text-sm">
-
       </div>
-
       {/* Right */}
-
       <div className="flex items-center gap-5">
-
         {/* Revenue */}
-
         <div className="flex items-center gap-2 rounded-full bg-green-50 px-5 py-2">
-
           <IndianRupee
             size={18}
             className="text-green-600"
-          />
-
+          /> 
           <span className="font-semibold text-green-600 ">
-            ₹18,900 today
+            18,900 today
           </span>
-
         </div>
 
         {/* Notification */}

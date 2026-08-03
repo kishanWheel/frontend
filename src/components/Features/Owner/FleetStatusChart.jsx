@@ -36,7 +36,7 @@ export default function FleetStatusChart() {
   return (
     <Card className="rounded-3xl shadow-sm">
       <CardHeader>
-        <CardTitle className="text-xl">
+        <CardTitle className="text-xl font-bold">
           Fleet Status
         </CardTitle>
         <p className="text-sm text-slate-500">

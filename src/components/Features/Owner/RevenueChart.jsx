@@ -30,7 +30,7 @@ export default function RevenueChart() {
 
       <CardHeader>
 
-        <CardTitle className="text-xl">
+        <CardTitle className="text-xl font-bold">
           Weekly Revenue
         </CardTitle>
         <p className="text-sm text-slate-500">

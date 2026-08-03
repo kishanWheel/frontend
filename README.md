@@ -1,16 +1,132 @@
-# React + Vite
+# 🚛 Kishan Wheels – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Kishan Wheels is a modern logistics and fleet management platform designed to simplify transportation management for vehicle owners and customers.
 
-Currently, two official plugins are available:
+> **⚠️ Project Status:** This project is currently under active development. Features, UI, and APIs are continuously being improved.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📌 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Kishan Wheels provides a centralized platform where:
 
-## Expanding the Oxlint configuration
+* Vehicle Owners can manage their fleet, drivers, bookings, earnings, and analytics.
+* Customers can book vehicles and track their transportation requests.
+* Administrators (planned) will manage users, vehicles, and platform operations.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+The application is being developed using **React**, **Vite**, **Tailwind CSS**, **shadcn/ui**, and **Node.js + Express + MongoDB** (backend).
+
+---
+
+# 🚧 Current Development Status
+
+### ✅ Completed
+
+* Splash Screen
+* Role Selection
+* User Authentication UI
+* Owner Dashboard UI
+* Dashboard KPI Cards
+* Weekly Revenue Chart
+* Fleet Status Chart
+* Incoming Booking Requests
+* Fleet Health Alerts
+* Fleet Management Page
+* Responsive Sidebar
+* Owner Layout
+
+### 🚧 In Progress
+
+* Backend API Integration
+* Vehicle CRUD Operations
+* Driver Management
+* Bookings Module
+* Tracking Module
+* Earnings Module
+* Analytics Module
+* Customer Dashboard
+* Settings Module
+
+### 📅 Planned Features
+
+* Live GPS Tracking
+* Real-time Notifications
+* Payment Integration
+* QR-based Vehicle Verification
+* Reports & Analytics
+* Admin Dashboard
+* Dark Mode
+* Mobile Optimization
+
+---
+
+# 🛠️ Tech Stack
+
+### Frontend
+
+* React.js
+* Vite
+* Tailwind CSS
+* shadcn/ui
+* React Router DOM
+* Axios
+* Recharts
+* Lucide React
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT Authentication
+* bcrypt
+
+---
+
+# 📷 Screenshots
+
+Coming Soon
+
+---
+
+# 🤝 Contributing
+
+This repository is currently under active development.
+
+If you're contributing:
+
+1. Create a new feature branch.
+2. Commit changes with meaningful commit messages.
+3. Push the branch.
+4. Open a Pull Request.
+
+Example:
+
+```bash
+git checkout -b feature/owner-dashboard
+git add .
+git commit -m "feat: add fleet management UI"
+git push origin feature/owner-dashboard
+```
+
+---
+
+# 📌 Notes
+
+* This project is currently in the development phase.
+* UI components may change as the design evolves.
+* Backend APIs are being integrated progressively.
+* Some pages currently display mock data until backend endpoints are completed.
+
+---
+
+# 👨‍💻 Development Team
+
+Developed as part of the **Kishan Wheels** logistics management project.
+
+Frontend and backend are being developed simultaneously, with new features added incrementally.
+
+---
+
+

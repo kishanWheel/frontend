@@ -1,9 +1,9 @@
-import DashboardHeader from "@/components/Features/Owner/DashboardHeader";
-import DashboardStats from "@/components/Features/Owner/DashboardStats";
-import RevenueChart from "@/components/Features/Owner/RevenueChart";
-import FleetStatusChart from "@/components/Features/Owner/FleetStatusChart";
-import IncomingRequests from "@/components/Features/Owner/IncomingRequests";
-import FleetHealthAlerts from "@/components/Features/Owner/FleetHealthAlerts";
+import DashboardHeader from "@/components/Features/Owner/Dashboard/DashboardHeader";
+import DashboardStats from "@/components/Features/Owner/Dashboard/DashboardStats";
+import RevenueChart from "@/components/Features/Owner/Dashboard/RevenueChart";
+import FleetStatusChart from "@/components/Features/Owner/Dashboard/FleetStatusChart";
+import IncomingRequests from "@/components/Features/Owner/Dashboard/IncomingRequests";
+import FleetHealthAlerts from "@/components/Features/Owner/Dashboard/FleetHealthAlerts";
 export default function OwnerDashboard() {
   return (
     <div className="min-h-screen bg-slate-100">

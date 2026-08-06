@@ -1,8 +1,8 @@
-import FleetHeader from "@/components/Features/Owner/FleetHeader";
-import FleetStats from "@/components/Features/Owner/FleetStats";
-import FleetToolbar from "@/components/Features/Owner/FleetToolbar";
-import FleetGrid from "@/components/Features/Owner/FleetGrid";
-import FleetTable from "@/components/Features/Owner/FleetTable";
+import FleetHeader from "@/components/Features/Owner/Fleet/FleetHeader";
+import FleetStats from "@/components/Features/Owner/Fleet/FleetStats";
+import FleetToolbar from "@/components/Features/Owner/Fleet/FleetToolbar";
+import FleetGrid from "@/components/Features/Owner/Fleet/FleetGrid";
+import FleetTable from "@/components/Features/Owner/Fleet/FleetTable";
 
 export default function Fleet() {
   return (

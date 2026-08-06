@@ -3,6 +3,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import OwnerLayout from "@/layouts/OwnerLayout";
 import OwnerDashboard from "@/components/pages/Owner/OwnerDashboard";
 import Fleet from "@/components/pages/Owner/Fleet";
+import Driver from "@/components/pages/Owner/Driver";
+import Booking from "@/components/pages/Owner/Booking";
 
 export default function OwnerRoutes() {
   return (
@@ -26,18 +28,14 @@ export default function OwnerRoutes() {
         <Route
           path="drivers"
           element={
-            <div className="p-10 text-3xl font-bold">
-              Drivers
-            </div>
+            <Driver />
           }
         />
 
         <Route
           path="bookings"
           element={
-            <div className="p-10 text-3xl font-bold">
-              Bookings
-            </div>
+            <Booking />
           }
         />
 

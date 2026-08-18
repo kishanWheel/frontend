@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { login } from "@/api/authApi";
+import { Link, useNavigate } from "react-router-dom";
 
-import { signup } from "@/api/authApi";
+import { useAuth } from "@/context/AuthContext";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,23 +16,22 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-function SignupForm() {
+function LoginForm() {
   const navigate = useNavigate();
-  const location = useLocation();
 
-  // Role selected from RoleSelection
-  const selectedRole = location.state?.role || "customer";
+  // AuthContext
+  const { login: saveUser } = useAuth();
 
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
+
   const [loading, setLoading] = useState(false);
 
 
-  const handleSignup = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     setMessage("");
@@ -40,63 +40,86 @@ function SignupForm() {
 
     try {
 
-      const res = await signup({
-        name,
+      // Call backend API
+      const res = await login({
         email,
         password,
-        role: selectedRole,
       });
 
-      console.log("SIGNUP RESPONSE:", res.data);
+      console.log("LOGIN RESPONSE:", res.data);
 
-      setMessage(
-        "Account created successfully! Redirecting to login..."
-      );
+      const { token, user } = res.data;
 
+
+      // Make sure backend returned user and token
+      if (!user || !token) {
+        throw new Error(
+          "Invalid login response from server"
+        );
+      }
+
+
+      // Save user + token through AuthContext
+      saveUser(user, token);
+
+
+      setMessage("Login successful!");
       setIsError(false);
 
 
-      // IMPORTANT:
-      // Signup does NOT automatically log the user in.
-      // Send them to Login.
-      setTimeout(() => {
-        navigate("/login");
-      }, 1000);
+      // Redirect according to role
+      if (user.role === "owner") {
+
+        navigate("/owner/dashboard");
+
+      } else if (user.role === "customer") {
+
+        navigate("/customer/dashboard");
+
+      } else if (user.role === "admin") {
+
+        navigate("/admin/dashboard");
+
+      } else {
+
+        setIsError(true);
+        setMessage("Unknown user role.");
+
+      }
 
     } catch (error) {
 
-      console.error("SIGNUP ERROR:", error);
+      console.error("LOGIN ERROR:", error);
 
       setIsError(true);
 
       setMessage(
         error.response?.data?.message ||
-        "Signup failed"
+        error.message ||
+        "Login failed"
       );
 
     } finally {
+
       setLoading(false);
+
     }
   };
 
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-100 p-4">
+    <div className="flex min-h-screen items-center justify-center bg-slate-100">
 
       <Card className="w-full max-w-md">
 
         <CardHeader>
 
           <CardTitle>
-            Create Account
+            Welcome Back
           </CardTitle>
 
           <CardDescription>
-            Create your Kishan Wheels{" "}
-            {selectedRole === "owner"
-              ? "Vehicle Owner"
-              : "Customer"}{" "}
-            account
+            Login to your Kishan Wheels account
           </CardDescription>
 
         </CardHeader>
@@ -105,31 +128,9 @@ function SignupForm() {
         <CardContent>
 
           <form
-            onSubmit={handleSignup}
+            onSubmit={handleLogin}
             className="space-y-4"
           >
-
-            {/* Name */}
-
-            <div className="space-y-2">
-
-              <Label htmlFor="name">
-                Full Name
-              </Label>
-
-              <Input
-                id="name"
-                type="text"
-                placeholder="Enter your name"
-                value={name}
-                onChange={(e) =>
-                  setName(e.target.value)
-                }
-                required
-              />
-
-            </div>
-
 
             {/* Email */}
 
@@ -164,28 +165,13 @@ function SignupForm() {
               <Input
                 id="password"
                 type="password"
-                placeholder="Create password"
+                placeholder="Enter password"
                 value={password}
                 onChange={(e) =>
                   setPassword(e.target.value)
                 }
                 required
               />
-
-            </div>
-
-
-            {/* Selected Role */}
-
-            <div className="rounded-lg bg-slate-100 p-3 text-sm">
-
-              Account Type:{" "}
-
-              <span className="font-semibold capitalize">
-                {selectedRole === "owner"
-                  ? "Vehicle Owner"
-                  : "Customer"}
-              </span>
 
             </div>
 
@@ -205,28 +191,32 @@ function SignupForm() {
             )}
 
 
+            {/* Login Button */}
+
             <Button
               type="submit"
               className="w-full"
               disabled={loading}
             >
               {loading
-                ? "Creating Account..."
-                : "Create Account"}
+                ? "Logging in..."
+                : "Login"}
             </Button>
 
           </form>
 
 
+          {/* Signup */}
+
           <p className="mt-4 text-center text-sm">
 
-            Already have an account?{" "}
+            Don&apos;t have an account?{" "}
 
             <Link
-              to="/login"
+              to="/role"
               className="font-medium underline"
             >
-              Login
+              Sign Up
             </Link>
 
           </p>
@@ -239,4 +229,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default LoginForm;
